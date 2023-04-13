@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="container">
+    <h1>[First Name]'s Random Picture Gallery</h1>
+    {% for img in images %}
+
+    <div class="card text-center">
+        <div class="card-header">
+            <a href="{{ url_for('img_view', image_id=img.id) }}" class="card-link">{{ img.title }}</a>
+        </div>
+        <div class="card-body">
+            <a href="{{ url_for('img_view', image_id=img.id) }}"><img src="/static/images/{{ img.id }}.jpg" width="250"
+                    class="img-fluid rounded" alt="{{ img.tags }}" /></a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
